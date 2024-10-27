@@ -56,7 +56,7 @@ userSchema.pre("save", async function(next) {
 })
 
 //Method to match entered password to hashed password in database
-userSchema.methods.matchPassword = async function(enteredPassword) {
+userSchema.methods.comparePassword = async function(enteredPassword) {
     return bycrypt.compare(enteredPassword, this.password);
 }
 
