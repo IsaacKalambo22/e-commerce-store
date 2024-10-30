@@ -1,7 +1,6 @@
 import express from "express";
-import { protectRoute, adminRoute } from "../middleware/auth.middleware";
-import router from "./auth.route";
-import { getAnalyticsData } from "../controllers/analytics.controller";
+import { protectRoute, adminRoute } from "../middleware/auth.middleware.js";
+import { getAnalyticsData } from "../controllers/analytics.controller.js";
 
 const router = express.Router();
 
@@ -16,7 +15,7 @@ router.get("/", protectRoute, adminRoute, async (req, res) => {
 
         res.json({
             analyticsData,
-            dailySalesData
+            dailySalesData,
         })
     } catch (error) {
         console.log("Error in the analytics route", error.message);
