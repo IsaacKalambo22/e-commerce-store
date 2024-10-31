@@ -147,8 +147,13 @@ export const refreshToken = async (req, res) => {
     }
 }
 
-//TODO: implement get profile
-// export const getProfile = async (req, res) => {}
+// implement get profile
+export const getProfile = async (req, res) => {
+    try {
+        res.json(req.user);
+    } catch (error) {
+       res.status(500).json({ message: "Server error", error: error.message }); 
+    }
+}
 
-    // rrefreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzFjYzQwZDAxMWU4M2Y3YjEyMTUwZDkiLCJpYXQiOjE3Mjk5NDE2NzEsImV4cCI6MTczMDU0NjQ3MX0.FIfN_8m_j9EAicPmHZH8UX6Z0ASWs3_akWnRPn31IjA; Path=/; 
-    // HttpOnly; Expires=Sat, 02 Nov 2024 11:21:12 GMT;
+    
